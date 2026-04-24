@@ -2,16 +2,16 @@ import React, { useState } from "react";
 import "./App.css";
 
 function App() {
-  // State for sidebar toggle
+  
   const [sidebarHidden, setSidebarHidden] = useState(false);
 
-  // State for dark mode
+
   const [darkMode, setDarkMode] = useState(false);
 
-  // State for search input
+
   const [searchTerm, setSearchTerm] = useState("");
 
-  // Device data
+  
   const devices = [
     { name: "Server-01", ip: "192.168.1.10", type: "Linux Server", status: "Critical" },
     { name: "Server-02", ip: "192.168.1.11", type: "Database", status: "Warning" },
@@ -20,7 +20,7 @@ function App() {
     { name: "Server-04", ip: "192.168.1.13", type: "Mail Server", status: "Healthy" },
   ];
 
-  // Alert data
+
   const alerts = [
     { id: "AL-101", device: "Server-01", issue: "High CPU Usage", status: "Critical" },
     { id: "AL-102", device: "Server-02", issue: "Disk Space Low", status: "Warning" },
@@ -28,14 +28,13 @@ function App() {
     { id: "AL-104", device: "Server-03", issue: "Service Down", status: "Critical" },
   ];
 
-  // Filter devices based on search
+
   const filteredDevices = devices.filter((device) =>
     device.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
     device.ip.toLowerCase().includes(searchTerm.toLowerCase()) ||
     device.type.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  // Download CSV
   const handleDownload = () => {
     let csv = "Device Name,IP Address,Type,Status\n";
 
@@ -89,7 +88,6 @@ function App() {
         </div>
       </header>
 
-      {/* Main Layout */}
       <div className="container">
         {/* Sidebar */}
         <aside className={sidebarHidden ? "sidebar hide" : "sidebar"}>
@@ -103,7 +101,7 @@ function App() {
           </ul>
         </aside>
 
-        {/* Main Content */}
+   
         <main className="main-content">
           {/* Cards */}
           <section className="cards">
@@ -128,7 +126,6 @@ function App() {
             </div>
           </section>
 
-          {/* Alerts Table */}
           <section className="table-section">
             <h2>Recent Alerts</h2>
             <table>
@@ -157,7 +154,6 @@ function App() {
             </table>
           </section>
 
-          {/* Devices Table */}
           <section className="table-section">
             <h2>Device Status</h2>
             <table>
